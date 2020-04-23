@@ -40,7 +40,7 @@ import java.util.Optional;
                 RestTemplate restTemplate = new RestTemplate();
                 HttpHeaders headers = new HttpHeaders();
                 headers.setBasicAuth("sasha.kochedykov@mail.ru", "c9Axu85uxw3kb8g9qh9NKjtzpZPm");
-                String uri = "https://@gate.smsaero.ru/v2/sms/send?number=79174383620&text=hello&sign=SMS Aero&channel=DIRECT";
+                String uri = "https://@gate.smsaero.ru/v2/sms/send?number=79172610217&text=hello abr&sign=SMS Aero&channel=DIRECT";
                 HttpEntity<String> entity = new HttpEntity<>(headers);
                 ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
                 return true;
