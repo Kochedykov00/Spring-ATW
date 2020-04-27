@@ -12,6 +12,9 @@ public interface ArticlesRepository extends JpaRepository<Article, Long> {
      List<Article> findAll();
      Article findArticleById(long id);
 
+
+
+
     @Query(value = "SELECT * FROM article order  by id desc LIMIT 5",
             nativeQuery = true)
     List<Article> findTop5ArticlesByDate();

@@ -25,6 +25,12 @@ public class Article {
     @JoinColumn(name = "user_id")
     private User user;
 
+    /*
+    @OneToOne
+     @JoinColumn(name = "blog_id ")
+    private Blog blog;
+    */
+
     @Temporal(TemporalType.DATE)
     private Date date;
     String title;

@@ -52,8 +52,7 @@ public class UsersController {
 
 
 
-        // TODO: проверить, есть ли такая кука в базе, если есть - отдать страницу
-        // TODO: если нет - редирект на login
+
 
 
     @GetMapping("/search")
