@@ -1,4 +1,4 @@
-/*
+
 
 package com.example.myfirstspringproject.dto;
 
@@ -10,8 +10,8 @@ import lombok.Data;
 public class BlogDto {
 
 
-    String title;
-    String description;
+    private String title;
+    private String description;
+    private Long id;
 
 }
-*/

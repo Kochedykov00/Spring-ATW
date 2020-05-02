@@ -1,8 +1,7 @@
-/*
 package com.example.myfirstspringproject.controllers;
 
 
-import com.example.myfirstspringproject.dto.ArticleDto;
+
 import com.example.myfirstspringproject.dto.BlogDto;
 import com.example.myfirstspringproject.models.Article;
 import com.example.myfirstspringproject.models.Blog;
@@ -63,4 +62,3 @@ public class BlogController {
 
 
 }
-*/

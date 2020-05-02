@@ -1,5 +1,3 @@
-
-/*
 package com.example.myfirstspringproject.models;
 
 
@@ -25,7 +23,7 @@ public class Blog {
     Long id;
 
     @OneToOne
-    @JoinColumn(table = "user_id")
+    @JoinColumn(name = "user_id")
     User user;
 
     String title;
@@ -66,4 +64,4 @@ public class Blog {
 
 }
 
-*/
+

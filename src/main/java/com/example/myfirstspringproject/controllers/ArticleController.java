@@ -2,17 +2,16 @@ package com.example.myfirstspringproject.controllers;
 
 import com.example.myfirstspringproject.dto.ArticleDto;
 import com.example.myfirstspringproject.models.Article;
+import com.example.myfirstspringproject.models.Comment;
 import com.example.myfirstspringproject.security.details.UserDetailsImpl;
 import com.example.myfirstspringproject.service.ArticleServiceImpl;
+import com.example.myfirstspringproject.service.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.annotation.MultipartConfig;
 import java.util.List;
 
 @Controller
@@ -23,6 +22,9 @@ public class ArticleController {
 
     @Autowired
     ArticleServiceImpl articleService;
+
+    @Autowired
+    CommentServiceImpl commentService;
 
 
     @PreAuthorize("permitAll()")
@@ -38,6 +40,8 @@ public class ArticleController {
     @GetMapping("/{article-id}")
     public String getConcreteFilm(@PathVariable("article-id") Long id, Model model) {
         Article article = articleService.getArticleById(id);
+     //   List <Comment> comments = commentService.getComments(id);
+       // model.addAttribute("commnets", comments);
         model.addAttribute("article", article);
         return "article";
     }

@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 public class ArticleDto {
 
-    String title;
-    String text;
-    String photo;
+   private String title;
+   private String text;
+   private String photo;
+   private Long id;
 }

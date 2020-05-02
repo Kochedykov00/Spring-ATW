@@ -1,4 +1,4 @@
-/*
+
 package com.example.myfirstspringproject.repositories;
 
 
@@ -11,10 +11,10 @@ import java.util.List;
 
 public interface BlogsRepository extends JpaRepository<Blog, Long> {
 
-    @Query(value = "SELECT * FROM article where blogs_id = id", nativeQuery = true)
+    @Query(value = "SELECT * FROM article where blog_id = id", nativeQuery = true)
     List<Article> findArticlesByBlogId(long id);
 
-    @Query(value = "SELECT * FROM blogs where users_id = id" , nativeQuery = true)
+    @Query(value = "SELECT * FROM blogs where user_id = id" , nativeQuery = true)
     List<Blog> findBlogsByIdUser(long id);
 }
-*/
+

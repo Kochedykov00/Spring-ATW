@@ -1,5 +1,6 @@
 package com.example.myfirstspringproject.models;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,30 +14,29 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "article")
+@Table(name = "comment")
 
-public class Article {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+
+    @OneToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
+
+
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 
 
-    @OneToOne
-    @JoinColumn(name = "blog_id")
-    private Blog blog;
-
-
     @Temporal(TemporalType.DATE)
     private Date date;
-    String title;
     String text;
-    int rating;
-    String photo;
+
 
     public Long getId() {
         return id;
@@ -54,12 +54,12 @@ public class Article {
         this.user = user;
     }
 
-    public String getTitle() {
-        return title;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getText() {
@@ -69,21 +69,4 @@ public class Article {
     public void setText(String text) {
         this.text = text;
     }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
 }
