@@ -1,5 +1,6 @@
 package com.example.myfirstspringproject.models;
 
+import com.example.myfirstspringproject.dto.BlogDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

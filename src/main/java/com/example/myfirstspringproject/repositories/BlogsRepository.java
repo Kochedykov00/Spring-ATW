@@ -11,10 +11,14 @@ import java.util.List;
 
 public interface BlogsRepository extends JpaRepository<Blog, Long> {
 
-    @Query(value = "SELECT * FROM article where blog_id = id", nativeQuery = true)
+    @Query(value = "SELECT * FROM article where blog_id = ?", nativeQuery = true)
     List<Article> findArticlesByBlogId(long id);
 
-    @Query(value = "SELECT * FROM blogs where user_id = id" , nativeQuery = true)
+
+    @Query(value = "SELECT * FROM blog where user_id = ?" , nativeQuery = true)
     List<Blog> findBlogsByIdUser(long id);
+
+   // @Query(value = "SELECT * FROM blog where id = id" , nativeQuery = true)
+    //Blog findBlogById(long id);
 }
 

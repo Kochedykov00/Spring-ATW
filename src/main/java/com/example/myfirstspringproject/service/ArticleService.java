@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ArticleService {
 
-    public List<Article> getArticles ();
-    public Article getArticleById (long id);
+    public List<ArticleDto> getArticles ();
+    public ArticleDto getArticleById (long id);
     public void createArticle(ArticleDto articleDto, User user);
 
 }

@@ -1,7 +1,6 @@
 package com.example.myfirstspringproject.service;
 
 import com.example.myfirstspringproject.dto.UserDto;
-import com.example.myfirstspringproject.models.CookieValue;
 import com.example.myfirstspringproject.models.User;
 import com.example.myfirstspringproject.repositories.CookieValuesRepository;
 import com.example.myfirstspringproject.repositories.UsersRepository;

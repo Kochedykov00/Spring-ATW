@@ -1,6 +1,7 @@
 package com.example.myfirstspringproject.controllers;
 
 import com.example.myfirstspringproject.dto.ArticleDto;
+import com.example.myfirstspringproject.dto.CommentDto;
 import com.example.myfirstspringproject.models.Article;
 import com.example.myfirstspringproject.models.Comment;
 import com.example.myfirstspringproject.security.details.UserDetailsImpl;
@@ -30,8 +31,8 @@ public class ArticleController {
     @PreAuthorize("permitAll()")
     @GetMapping
     public String getArticles (Model model) {
-      List<Article> articlesByDate = articleService.getTop5ArticlesByDate();
-      List<Article> articlesByRating = articleService.getTop5ArticlesByRating();
+      List<ArticleDto> articlesByDate = articleService.getTop5ArticlesByDate();
+      List<ArticleDto> articlesByRating = articleService.getTop5ArticlesByRating();
         model.addAttribute("articlesByDate", articlesByDate);
         model.addAttribute("articlesByRating", articlesByRating);
         return "articles";
@@ -39,11 +40,20 @@ public class ArticleController {
 
     @GetMapping("/{article-id}")
     public String getConcreteFilm(@PathVariable("article-id") Long id, Model model) {
-        Article article = articleService.getArticleById(id);
-     //   List <Comment> comments = commentService.getComments(id);
-       // model.addAttribute("commnets", comments);
+        ArticleDto article = articleService.getArticleById(id);
+        List <CommentDto> comments = commentService.getComments(id);
+        model.addAttribute("comments", comments);
         model.addAttribute("article", article);
         return "article";
+    }
+
+    @PostMapping("/{article-id}")
+    @PreAuthorize("isAuthenticated()")
+    public String createComment(@PathVariable("article-id") Long id, Authentication authentication, CommentDto commentDto) {
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        ArticleDto article = articleService.getArticleById(id);
+        commentService.createComment(commentDto, userDetails.getUser(), article);
+        return "redirect:/";
     }
 
     @GetMapping("/createArticle")

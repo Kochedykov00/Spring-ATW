@@ -25,7 +25,7 @@
 
 
     <nav class="navbar navbar-dark bg-company-red" style="background-color: #8eb0fa">
-        <a class="navbar-brand" href="/main">Around the world</a>
+        <a class="navbar-brand" href="/articles">Around the world</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,19 +34,19 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/myProfile">My profile</a>
+                    <a class="nav-link" href="/profile/">My profile</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/main">Main</a>
+                    <a class="nav-link" href="/articles">Main</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/discussions">Discussions</a>
+                    <a class="nav-link" href="/articles/createArticle">Create Article</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/myBlog">My blog</a>
+                    <a class="nav-link" href="/blog">My blog</a>
                 </li>
 
                 <li class="nav-item">

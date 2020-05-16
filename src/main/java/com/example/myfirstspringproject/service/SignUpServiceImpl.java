@@ -1,6 +1,7 @@
 package com.example.myfirstspringproject.service;
 
 import com.example.myfirstspringproject.dto.SignUpDto;
+import com.example.myfirstspringproject.dto.SignUpForm;
 import com.example.myfirstspringproject.models.Role;
 import com.example.myfirstspringproject.models.State;
 import com.example.myfirstspringproject.models.User;
@@ -32,7 +33,7 @@ public class SignUpServiceImpl implements SignUpService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public void signUp(SignUpDto form) {
+    public void signUp(SignUpForm form) {
         User user = User.builder()
                 .email(form.getEmail())
                 .hashPassword(passwordEncoder.encode(form.getPassword()))

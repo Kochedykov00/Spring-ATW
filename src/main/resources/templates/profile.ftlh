@@ -16,7 +16,11 @@
 
                     <img src="${user.getPhoto()!}" width="400"/>
                 </div>
-                <div class="col-5 profileInfo">
+                <#if user.getId() == myPage.getId()>
+                    <a href="/editProfile">Edit</a>
+
+                </#if>
+                        <div class="col-5 profileInfo">
                     <div class="row" id="infoAbout">
                         <div class="col-5">
                             <label for="login"><@spring.message 'profile.page.username'/> :</label>
@@ -41,6 +45,27 @@
                         </div>
                     </div>
                     <br />
+                            <div class="row" style="font-size: 19px;font-weight: 700;">
+                                <div class="col-5">
+                                    <label for="blog">Blog :</label>
+                                </div>
+                                     <#list blog as b>
+
+
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <h4 id="blog">${b.title}</h4>
+                                            <form style="margin-left: 20%" action="/blog/${b.id}" >
+                                                &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-primary">go over</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+                                </#list>
+
+                            </div>
+
 
                 </div>
             </div>

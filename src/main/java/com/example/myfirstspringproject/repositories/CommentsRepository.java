@@ -10,7 +10,7 @@ public interface CommentsRepository extends JpaRepository<Comment, Long> {
 
 
 
-    @Query(value = "select * from comments where article_id = ?", nativeQuery = true)
+    @Query(value = "select * from comment where article_id = ?", nativeQuery = true)
     List<Comment> listOfCommentByArticle (long id);
 
 

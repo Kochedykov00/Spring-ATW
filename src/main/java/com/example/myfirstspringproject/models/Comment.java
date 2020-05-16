@@ -36,6 +36,7 @@ public class Comment {
     @Temporal(TemporalType.DATE)
     private Date date;
     String text;
+    String username;
 
 
     public Long getId() {

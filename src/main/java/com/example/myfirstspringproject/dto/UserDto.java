@@ -23,6 +23,7 @@ public class UserDto {
     private String photo;
     private String info;
     private Long id;
+    private long blog_id;
 
     public static UserDto from(User user) {
         return UserDto.builder()
@@ -31,6 +32,7 @@ public class UserDto {
                 .lastname(user.getLastname())
                 .username(user.getUsername())
                 .email(user.getEmail())
+                .blog_id(user.getBlog().getId())
                 .build();
     }
 

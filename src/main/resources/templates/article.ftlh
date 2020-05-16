@@ -79,6 +79,48 @@
     </div>
 </div>
 
+
+    <div class="row commentsCont">
+        <div class="col-10">
+            <div>
+                <h2>Comments :</h2>
+                <#list comments as c>
+                    <div>
+                        <div class="comment row">
+                            <div class="col-11" style="margin-left: 5%">
+                                <a href="/profile/${c.user_id}">${c.username}</a>
+                                <div class="bordered text-div comment-text">
+                                    <div>${c.text}</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </#list>
+            </div>
+        </div>
+    </div>
+
+
+    </br></br></br></br>
+    <h3 style="margin-left: 10%">Write comment :</h3>
+    <form method="post" class="addCommentsCont">
+        <div class="row">
+            <div class="col-8">
+                <h6 class="text-div">NickName</h6>
+                <div class="text-div">
+                    <div class="form-group">
+                        <textarea class="form-control" name="text" id="text" rows="2"></textarea>
+                    </div>
+                </div>
+                <div style="text-align: right">
+                    <input type="submit" name="submit" value="save" class="btn btn-outline-primary"/>
+                </div>
+            </div>
+        </div>
+    </form>
 </#macro>
+
 
 <@display_page />

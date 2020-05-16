@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Builder
-@Table(name = "blogs")
+@Entity
+@Table(name = "blog")
 
 
 public class Blog {

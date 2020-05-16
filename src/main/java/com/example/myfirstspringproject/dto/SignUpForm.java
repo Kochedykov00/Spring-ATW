@@ -1,0 +1,23 @@
+package com.example.myfirstspringproject.dto;
+
+
+import lombok.Data;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
+@Data
+public class SignUpForm {
+
+    @Size(min = 2, max = 16, message = "{errors.short.name}")
+    private String firstname;
+    @Email(message = "{errors.incorrect.login}")
+    private String email;
+    @Size(min = 2, max = 16, message = "{errors.short.name}")
+    private String lastname;
+    @Size(min = 3, max = 12, message = "{errors.short.name}")
+    private String username;
+    private String password;
+
+
+}

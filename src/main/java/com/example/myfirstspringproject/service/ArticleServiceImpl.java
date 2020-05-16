@@ -2,6 +2,7 @@ package com.example.myfirstspringproject.service;
 
 import com.example.myfirstspringproject.dto.ArticleDto;
 import com.example.myfirstspringproject.models.Article;
+import com.example.myfirstspringproject.models.Blog;
 import com.example.myfirstspringproject.models.User;
 import com.example.myfirstspringproject.repositories.ArticlesRepository;
 import com.example.myfirstspringproject.util.FileStorageUtil;
@@ -11,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
+
+import static com.example.myfirstspringproject.dto.ArticleDto.from;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -23,24 +26,29 @@ public class ArticleServiceImpl implements ArticleService {
     FileStorageUtil fileStorageUtil;
 
 
-    public List<Article> getArticles () {
+    public List<ArticleDto> getArticles () {
         List<Article> articles = articlesRepository.findAll();
-        return articles;
+        return from(articles);
     }
 
-    public Article getArticleById (long id) {
+    public ArticleDto getArticleById (long id) {
+        Article article = articlesRepository.findArticleById(id);
+        return from(article);
+    }
+
+    public Article getArticle(Long id) {
         Article article = articlesRepository.findArticleById(id);
         return article;
     }
 
-    public List<Article> getTop5ArticlesByDate() {
+    public List<ArticleDto> getTop5ArticlesByDate() {
         List<Article> articles = articlesRepository.findTop5ArticlesByDate();
-        return articles;
+        return from(articles);
     }
 
-    public List<Article> getTop5ArticlesByRating() {
+    public List<ArticleDto> getTop5ArticlesByRating() {
         List<Article> articles = articlesRepository.findTop5ArticlesByRating();
-        return articles;
+        return from(articles);
     }
 
     public void createArticle(ArticleDto articleDto, User user) {
@@ -51,6 +59,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .text(articleDto.getText())
                 .title(articleDto.getTitle())
                 .user(user)
+                .blog(user.getBlog())
                 .photo(articleDto.getPhoto())
                 .build();
         articlesRepository.save(article);

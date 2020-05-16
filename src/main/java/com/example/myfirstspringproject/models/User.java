@@ -1,5 +1,6 @@
 package com.example.myfirstspringproject.models;
 
+import com.example.myfirstspringproject.dto.BlogDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,6 +35,22 @@ public class User {
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "blog_id")
+    private Blog blog;
 
 
     public Long getId() {
