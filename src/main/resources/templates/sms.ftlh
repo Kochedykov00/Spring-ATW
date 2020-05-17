@@ -1,4 +1,5 @@
-<!doctype html>
+<#include "base.ftlh"/>
+<#macro content>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="application/javascript" src="webjars/jquery/3.4.1/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Sms</title>
 </head>
 <body>
 <h2 id="result"></h2>
@@ -31,3 +32,5 @@
 </script>
 </body>
 </html>
+</#macro>
+<@display_page/>

@@ -23,4 +23,7 @@ public interface ArticlesRepository extends JpaRepository<Article, Long> {
             nativeQuery = true)
     List<Article> findTop5ArticlesByRating();
 
+    @Query(value = "SELECT * FROM article where blog_id = ?", nativeQuery = true)
+    List<Article> findArticlesByBlogId(long id);
+
 }

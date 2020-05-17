@@ -1,3 +1,5 @@
+<#include "base.ftlh"/>
+<#macro content>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <script>
         var webSocket;
         function connect() {
-            webSocket = new WebSocket('ws://localhost:8080/chat');
+            webSocket = new WebSocket('ws://localhost/chat');
 
             document.cookie = 'X-Authorization=' + '12345' + ';path=/';
 
@@ -35,14 +37,23 @@
     </script>
 </head>
 <body onload="connect()">
-<div>
-    <label for="message">Текст сообщения</label>
-    <input name="message" id="message" placeholder="Сообщение">
-    <button onclick="sendMessage($('#message').val(), '${pageId}')">Отправить</button>
-    <h3>Сообщения</h3>
-    <ul id="messagesList">
 
-    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+        <label for="message">Текст сообщения</label>
+        <input name="message" id="message" placeholder="Сообщение">
+        <button onclick="sendMessage($('#message').val(), '${user.getUsername()}')">Отправить</button>
+        </div>
+        <div class="col-9"
+        <h3>Сообщения</h3>
+        <ul id="messagesList">
+        </ul>
+    </div>
+    </div>
+
 </div>
 </body>
 </html>
+</#macro>
+<@display_page/>

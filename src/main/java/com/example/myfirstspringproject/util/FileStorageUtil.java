@@ -22,7 +22,7 @@ import java.util.UUID;
 @Component
 public class FileStorageUtil {
 
-    @Value("${storage.path}")
+    @Value("C:\\files")
     private String storagePath;
 
     public String getStoragePath() {

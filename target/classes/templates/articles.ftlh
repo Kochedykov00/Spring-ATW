@@ -12,6 +12,45 @@
 
     <body>
 
+    <div class="col-12">
+    <p><label for="name"></label><input id="name" oninput="f()"/></p>
+    </div>
+
+
+    <div id="res"></div>
+
+    <script type="application/javascript">
+
+        function f() {
+            if ($("#name").val().length >= 1) {
+                $.ajax({
+                    url: "/users/search",
+                    data: {"name": $("#name").val()},
+                    dataType: "json",
+                    success: function (name) {
+
+                        if (name.length > 0) {
+
+                            $("#res").html("");
+                            $("#res").append("<h3>Найдено " + name.length + " пользователя(ей)</h3>");
+                            for (var i = 0; i < name.length; i++) {
+
+
+                                $("#res").append("<h4>" + name[i].username + "</h4>");
+                            }
+                        } else {
+                            $("#res").html("Пользователи не найдены");
+                        }
+                    }
+                })
+            }
+            else {
+                $("#res").html(" ");
+            }
+        }
+    </script>
+
+
 
     <br /><br />
 
@@ -27,12 +66,12 @@
 
 
 
-                        <img src="../photo/article_photo.png" class="small-photo">
+                        <img src="${a.photo}" class="small-photo">
                         <div class="bestArtBody">
 
                             <div style="overflow: auto; max-width: 100px;">
                                 <div><a class="articleHref" href="/articles/${a.id}">${a.title}</a></div>
-                                <div><a class="articleHref" href=""></a></div>
+                                <div><a class="articleHref" href="/profile/${a.user_id}">Author</a></div>
                                 <div><h6>${a.date}</h6></div>
                             </div>
 
@@ -56,11 +95,11 @@
                         <div class="col-9 lastArt" >
                             <div class="lastArtRow row">
 
-                                <img src="../photo/article_photo.png" class="small-photo1">
+                                <img src="${ad.photo}" class="small-photo1" width="200px", height="auto">
                                 <div class="lastArtBody">
                                     <div style="overflow: auto; max-width: 300px;">
                                         <div><a class="articleHref" href="/articles/${ad.id}">${ad.title}</a></div>
-                                        <div><a class="articleHref" href="">blog</a></div>
+                                        <div><a class="articleHref" href="/profile/${ad.user_id}">Author</a></div>
                                         <div><h6>${ad.date}</h6></div>
                                     </div>
                                 </div>

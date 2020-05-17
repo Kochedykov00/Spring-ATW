@@ -51,6 +51,11 @@ public class ArticleServiceImpl implements ArticleService {
         return from(articles);
     }
 
+    public List<ArticleDto> getArticlesByIdBlog(long id) {
+        List<Article> articles = articlesRepository.findArticlesByBlogId(id);
+        return from(articles);
+    }
+
     public void createArticle(ArticleDto articleDto, User user) {
         Date date = new Date();
         Article article = Article.builder()
@@ -63,6 +68,22 @@ public class ArticleServiceImpl implements ArticleService {
                 .photo(articleDto.getPhoto())
                 .build();
         articlesRepository.save(article);
+    }
+
+    public void plus(ArticleDto articleDto) {
+        Article article = articlesRepository.findArticleById(articleDto.getId());
+        Date date = new Date();
+        Article article1 = Article.builder()
+                .date(date)
+                .id(article.getId())
+                .rating(articleDto.getRating())
+                .text(articleDto.getText())
+                .title(articleDto.getTitle())
+                .user(article.getUser())
+                .blog(article.getBlog())
+                .photo(articleDto.getPhoto())
+                .build();
+        articlesRepository.save(article1);
     }
 
 }

@@ -28,6 +28,7 @@ public class EditorProfileServiceImpl implements EditorProfileService {
                 .hashPassword(user.getHashPassword())
                 .createdAt(user.getCreatedAt())
                 .role(user.getRole())
+                .blog(user.getBlog())
                 .state(user.getState())
                 .build();
         usersRepository.save(userChange);

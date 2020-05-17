@@ -28,22 +28,24 @@ public class SignInController {
     }
 
 
-        @PostMapping("/signIn")
+    @PostMapping("/signIn")
     public String signIn(@RequestParam("email") String email,
-                         @RequestParam("password") String password,
+                         @RequestParam("password") String password, @RequestParam(name = "check", required = false) String check,
                          HttpServletResponse response) {
-            String cookieValue = signInService.signIn(email, password);
+        Boolean cookie = (check != null);
+        String cookieValue = signInService.signIn(email, password, cookie);
 
-            Cookie cookie = new Cookie("AuthCookie", "");
-            response.addCookie(cookie);
-
-            if (cookieValue == null) {
-                return "redirect:/signIn?error";
-            }
-            cookie = new Cookie("AuthCookie", cookieValue);
-                response.addCookie(cookie);
-                return "redirect:/users";
+        if (cookieValue == null) {
+            return "redirect:/signIn?error";
         }
 
+
+        if (cookie) {
+            Cookie cookie1 = new Cookie("AuthCookie", cookieValue);
+            response.addCookie(cookie1);
+        }
+        return "redirect:/articles";
+
+    }
 }
 

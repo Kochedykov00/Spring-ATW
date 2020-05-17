@@ -19,10 +19,10 @@ import java.util.List;
 public interface BlogService {
 
 
-   List<BlogDto> getBlogs (long id);
-   List<ArticleDto> getArticlesByIdBlog(long id);
+
    void createBlog(BlogDto blogDto, User user);
    public List<BlogDto> getBlogByIdUser(long id);
+   public Blog getBlogById(long id);
 
 
 

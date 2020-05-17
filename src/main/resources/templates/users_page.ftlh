@@ -17,7 +17,7 @@
         </tr>
         <#list users as user>
             <tr>
-                <td>${user.name}</td>
+                <td>${user.username}</td>
                 <td>${user.email}</td>
                 <td><a href="/users/${user.id}">Посмотреть</a></td>
             </tr>
@@ -46,7 +46,7 @@
                             $("#res").html("");
                             $("#res").append("<h3>Найдено " + name.length + " пользователя(ей)</h3>");
                             for (var i = 0; i < name.length; i++) {
-                                $("#res").append("<h3>" + name[i].name + "</h3>");
+                                $("#res").append("<h3>" + name[i].username + "</h3>");
                             }
                         } else {
                             $("#res").html("Пользователи не найдены");

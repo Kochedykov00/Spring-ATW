@@ -33,32 +33,20 @@ public class UsersController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
-    public String getUsersPage(@CookieValue(value = "AuthCookie", required = false) String cookie,
-                               Model model) throws NullPointerException {
+    public String getUsersPage(Model model)  {
 
-                if (usersService.checkCookie(cookie)) {
-                    List<UserDto> users = usersService.getUsers();
-                    model.addAttribute("users", users);
-                    return "users_page";
-                }
-                else {
-                    return "/signIn";
-               }
+            List<UserDto> users = usersService.getUsers();
+            model.addAttribute("users", users);
+            return "users_page";
     }
-
-
-
-
-
-
-
-
-
 
     @GetMapping("/search")
     @ResponseBody
     public List<UserDto> searchUsers(@RequestParam("name") String name) {
         return usersService.search(name);
     }
+
+
+
 
 }

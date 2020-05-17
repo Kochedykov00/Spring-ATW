@@ -12,5 +12,6 @@ public interface ArticleService {
     public List<ArticleDto> getArticles ();
     public ArticleDto getArticleById (long id);
     public void createArticle(ArticleDto articleDto, User user);
+    public List<ArticleDto> getArticlesByIdBlog(long id);
 
 }

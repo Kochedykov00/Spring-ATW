@@ -6,6 +6,26 @@
 
     <head>
         <title>Profile</title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.delete').click(function () {
+                    var name = $(this).attr('name');
+                    $.ajax({
+                        type: "post",
+                        url: "/delete",
+                        data: {
+                            "checklist_id": name
+                        },
+                        success: function () {
+                            $('#' + name).fadeOut();
+                        }
+                    });
+                });
+            });
+        </script>
+
     </head>
 
 
@@ -18,9 +38,12 @@
                 </div>
                 <#if user.getId() == myPage.getId()>
                     <a href="/editProfile">Edit</a>
-
                 </#if>
+
+
+
                         <div class="col-5 profileInfo">
+
                     <div class="row" id="infoAbout">
                         <div class="col-5">
                             <label for="login"><@spring.message 'profile.page.username'/> :</label>
@@ -32,6 +55,8 @@
                             <label for="info"><@spring.message 'profile.page.info'/> :</label>
                         </div>
                         <div class="col-6">
+
+
                             <h4 id="login">${user.getUsername()}</h4>
                             <br />
                             <h4 id="surname">${user.getLastname()}</h4>

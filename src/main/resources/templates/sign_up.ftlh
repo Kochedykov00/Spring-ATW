@@ -2,6 +2,7 @@
 <#macro content>
 </#macro>
 <#macro display_page>
+
     <#import "spring.ftl" as spring />
 
 

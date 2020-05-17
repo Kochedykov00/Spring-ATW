@@ -2,10 +2,8 @@ package com.example.myfirstspringproject.models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.File;
 
 /**
  * 01.12.2017
@@ -28,7 +26,8 @@ public class FileInfo {
     private Long id;
     // название файла в хранилище
     private String storageFileName;
-    // название файла оригинальное
+
+
     private String originalFileName;
     // размер файла
     private Long size;
@@ -36,5 +35,8 @@ public class FileInfo {
     private String type;
     // по какому URL можно получить файл
     private String url;
+
+
+
 }
 

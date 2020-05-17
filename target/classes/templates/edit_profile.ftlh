@@ -67,7 +67,7 @@
                                 <br /><br />
                                 <label for="name"><@spring.message 'profile.page.edit.firstname'/></label>
                                 <br /><br />
-                                <label for="aboutMe"><@spring.message 'profile.page.edit.info'/></label>
+                                <label for="info"><@spring.message 'profile.page.edit.info'/></label>
                             </div>
                             <div class="col-6">
                                 <input type="text" name="username" value="${user.getUsername()}" class="form-control" placeholder="" id="login">
@@ -79,7 +79,7 @@
                                 <#if user.getInfo()??>
                                     <input type="text" value="${user.getInfo()}" name="info" class="form-control" placeholder="" id="info">
                                 <#else >
-                                    <input type="text"  name="info" class="form-control" placeholder="" id="aboutMe">
+                                    <input type="text"  name="info" class="form-control" placeholder="" id="info">
                                 </#if >
 
                             </div>

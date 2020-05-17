@@ -29,21 +29,19 @@ public class BlogServiceImpl implements BlogService {
     UsersRepository usersRepository;
 
 
-    public List<BlogDto> getBlogs (long id) {
-       List <Blog> blogs = blogsRepository.findBlogsByIdUser(id);
-        return from(blogs);
-    }
+
 
     public List<BlogDto> getBlogByIdUser(long id) {
         List<Blog> blogs = blogsRepository.findBlogsByIdUser(id);
         return from(blogs);
     }
 
-
-    public List<ArticleDto> getArticlesByIdBlog(long id) {
-        List<Article> articles = blogsRepository.findArticlesByBlogId(id);
-        return from(articles);
+    public Blog getBlogById(long id) {
+        Blog blog = blogsRepository.findBlogById(id);
+        return blog;
     }
+
+
 
     public void createBlog(BlogDto blogDto, User user) {
         Blog blog = Blog.builder()

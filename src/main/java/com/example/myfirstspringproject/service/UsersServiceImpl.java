@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.example.myfirstspringproject.dto.UserDto.from;
+import static com.example.myfirstspringproject.dto.UserDto.fromSearch;
 
 @Service
 public class UsersServiceImpl implements UsersService {
