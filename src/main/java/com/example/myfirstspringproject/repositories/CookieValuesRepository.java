@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface CookieValuesRepository extends JpaRepository<CookieValue, Long> {
+
+
     CookieValue findByValue(String value);
 }
 

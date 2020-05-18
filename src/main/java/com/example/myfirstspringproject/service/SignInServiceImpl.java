@@ -22,9 +22,9 @@ public class SignInServiceImpl implements SignInService {
     public String signIn(String email, String password, Boolean cookie) {
         User user = usersRepository.findByEmail(email);
         String value = null;
-        if (cookie) {
             if (user != null && user.getHashPassword().equals(password)) {
-                value = UUID.randomUUID().toString();
+               if (cookie) {
+                    value = UUID.randomUUID().toString();
                 CookieValue cookieValue = CookieValue.builder()
                         .value(value)
                         .user(user)

@@ -6,20 +6,72 @@
 
     <head>
         <title><@spring.message 'main.page.head'/></title>
-    </head>
+
+   <#-- <script type="application/javascript">
+        function search() {
+        var s = document.getElementById("rating");
+        var rating = s.options[s.selectedIndex].value;
+        if ($("#input_query").val().length >= 3) {
+        $.ajax({
+        url: "/articles/search",
+        data: {
+        "query": $("#input_query").val(),
+        "rating": rating
+        },
+        dataType: "json",
+        success: function (msg) {
+        if (msg.articles.length > 0) {
+        $("#resptext").html("");
+        $("#pages-button-spawn").html("");
+        for (var i = 0; i < msg.articles.length; i++) {
+            if (.length > 0) {
+
+                $("#res").html("");
+                $("#res").append("<h3>Найдено " + name.length + " пользователя(ей)</h3>");
+                for (var i = 0; i < name.length; i++) {
+
+
+                    $("#res").append("<h4>" + name[i].username + "</h4>");
+                }
+            } else {
+                $("#res").html("Пользователи не найдены");
+            }
+        })
+        }
+        }
+        }
+    </script>
+   --> </head>
 
 
 
     <body>
 
+    <#--<div class="card-header">
+        <h4>Поиск</h4>
+    </div>
+    <input type="text" id="input_query"/>
+    <br>
+    <select class="custom-select" id="rating-select" name="rating">
+        <option selected disabled><@spring.message 'exercises.section.page.size'/></option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=5>5</option>
+        <option value=10>10</option>
+        <option value=20>20</option>
+    </select>
+    <div class="list-group-item tr">
+        <input type="button" id="sendreq" class="btn" value="Поиск" onclick="search()"/>
+    </div>
+
     <div class="col-12">
     <p><label for="name"></label><input id="name" oninput="f()"/></p>
     </div>
-
+-->
 
     <div id="res"></div>
 
-    <script type="application/javascript">
+   <#-- <script type="application/javascript">
 
         function f() {
             if ($("#name").val().length >= 1) {
@@ -27,7 +79,7 @@
                     url: "/users/search",
                     data: {"name": $("#name").val()},
                     dataType: "json",
-                    success: function (name) {
+                    success: function (msg) {
 
                         if (name.length > 0) {
 
@@ -36,7 +88,7 @@
                             for (var i = 0; i < name.length; i++) {
 
 
-                                $("#res").append("<h4>" + name[i].username + "</h4>");
+                                $("#res").append("<h4>" + name[i].title + "</h4>");
                             }
                         } else {
                             $("#res").html("Пользователи не найдены");
@@ -49,7 +101,7 @@
             }
         }
     </script>
-
+-->
 
 
     <br /><br />
@@ -71,7 +123,7 @@
 
                             <div style="overflow: auto; max-width: 100px;">
                                 <div><a class="articleHref" href="/articles/${a.id}">${a.title}</a></div>
-                                <div><a class="articleHref" href="/profile/${a.user_id}">Author</a></div>
+                                <div><a class="articleHref" href="/profile/${a.user_id}"><@spring.message 'main.page.author'/></a></div>
                                 <div><h6>${a.date}</h6></div>
                             </div>
 

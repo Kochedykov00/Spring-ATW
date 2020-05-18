@@ -1,6 +1,7 @@
 package com.example.myfirstspringproject.controllers;
 
 import com.example.myfirstspringproject.dto.ArticleDto;
+import com.example.myfirstspringproject.dto.ArticleSearchResult;
 import com.example.myfirstspringproject.dto.CommentDto;
 import com.example.myfirstspringproject.models.Article;
 import com.example.myfirstspringproject.models.Comment;
@@ -31,6 +32,8 @@ public class ArticleController {
 
     @Autowired
     UsersService usersService;
+
+
 
 
     @PreAuthorize("permitAll()")
@@ -93,6 +96,14 @@ public class ArticleController {
         return "redirect:/";
     }
 
+
+   /* @RequestMapping("search")
+    public ArticleSearchResult search(@RequestParam("query") String query, @RequestParam("rating") Integer rating) {
+        ArticleSearchResult res = service.search(query, rating);
+        System.out.println(res.getArticleDtos().size() );
+        return res;
+    }
+*/
 
 
 }

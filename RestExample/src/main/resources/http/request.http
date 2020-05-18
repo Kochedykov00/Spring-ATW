@@ -1,0 +1,25 @@
+POST http://localhost/signIn
+Content-Type: application/json
+
+{
+  "email" : "sasha.kochedykov@mail.ru",
+  "password": "123"
+}
+
+###
+
+GET http://localhost/self
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+
+###
+GET http://localhost/users/2/articles
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+###
+
+GET http://localhost/articles/7
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+###
+
+DELETE http://localhost/articles/3
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+###

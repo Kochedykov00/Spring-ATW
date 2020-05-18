@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6" align="right">
-                    <input type="checkbox" name="check"><@spring.message 'signIn.checkbox'/></input>
+                    <input type="checkbox" id = "checkbox" name="checkbox"><@spring.message 'signIn.checkbox'/></input>
                     <a class="btn btn-primary border-black mx-4 btn-lg px-15 mt-4"
                        style="background-color: rgba(59,72,148,0.91)"
                        href="/signUp" role="button">&nbsp;&nbsp;&nbsp;<@spring.message 'signIn.signUp'/>&nbsp;&nbsp;&nbsp;</a>

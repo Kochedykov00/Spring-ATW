@@ -37,7 +37,7 @@
                     <img src="${user.getPhoto()!}" width="400"/>
                 </div>
                 <#if user.getId() == myPage.getId()>
-                    <a href="/editProfile">Edit</a>
+                    <a href="/editProfile"><@spring.message 'profile.page.blog'/></a>
                 </#if>
 
 
@@ -81,7 +81,7 @@
                                         <div class="row">
                                             <h4 id="blog">${b.title}</h4>
                                             <form style="margin-left: 20%" action="/blog/${b.id}" >
-                                                &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-primary">go over</button>
+                                                &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-primary"><@spring.message 'profile.page.blog'/></button>
                                             </form>
                                         </div>
                                     </div>

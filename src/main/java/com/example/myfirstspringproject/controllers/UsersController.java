@@ -1,6 +1,7 @@
 package com.example.myfirstspringproject.controllers;
 
 
+import com.example.myfirstspringproject.dto.ArticleSearchResult;
 import com.example.myfirstspringproject.dto.UserDto;
 import com.example.myfirstspringproject.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,11 @@ public class UsersController {
             return "users_page";
     }
 
-    @GetMapping("/search")
-    @ResponseBody
-    public List<UserDto> searchUsers(@RequestParam("name") String name) {
-        return usersService.search(name);
-    }
+   // @GetMapping("/search")
+   // @ResponseBody
+   // public ArticleSearchResult searchArticles(@RequestParam("query") String name ) {
+     //   return usersService.search(name);
+    //}
 
 
 
