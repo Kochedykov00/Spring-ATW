@@ -34,11 +34,12 @@ public class ProfileController {
     @PreAuthorize("isAuthenticated()")
     public String getProfile(@PathVariable("user-id") Long id, Authentication authentication, Model model) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        User myPage = userDetails.getUser();
         UserDto user = usersService.getConcreteUser(id);
         List<BlogDto> blogDtos = blogService.getBlogByIdUser(id);
         model.addAttribute("blog", blogDtos);
-        model.addAttribute("myPage", userDetails.getUser());
         model.addAttribute("user", user);
+        model.addAttribute("myPage", myPage);
         return "profile";
     }
 

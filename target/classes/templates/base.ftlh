@@ -36,12 +36,23 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/index">Online chat</a>
+                    <a class="nav-link" href="/chating">Online chat</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="/articles">Main</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/function_search">Search</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">My Profile</a>
+                </li>
+
+
 
                 <li class="nav-item">
                     <a class="nav-link" href="/articles/createArticle">Create Article</a>

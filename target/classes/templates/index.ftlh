@@ -27,13 +27,13 @@
         }
 
         function sendMessage(text, pageId) {
-            let message = {
-                "text": text,
-                "from": pageId
-            };
-
-            webSocket.send(JSON.stringify(message));
+            $('#message').val('');
+            webSocket.send(JSON.stringify({
+                "text" : text,
+                "from" : pageId
+            }));
         }
+
     </script>
 </head>
 <body onload="connect()">

@@ -2,6 +2,7 @@ package com.example.myfirstspringproject.controllers;
 
 import com.example.myfirstspringproject.service.SignInService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,16 @@ public class SignInController {
 
     @GetMapping("/signIn")
     public String getSignIn(@RequestParam(value = "error", required = false) String error,
-                            Model model) {
+                            Model model , Authentication authentication) {
         if (error != null) {
             model.addAttribute("error", true);
         }
-        return "sign_in";
+
+        if (authentication != null) {
+            return "redirect:/";
+        } else {
+            return "sign_in";
+        }
     }
 
 

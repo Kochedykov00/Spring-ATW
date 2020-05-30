@@ -32,8 +32,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<UserDto> search(String name) {
-        return from(usersRepository.findAllByUsernameContainsIgnoreCase(name));
+    public List<UserDto> search(String username) {
+        return from(usersRepository.findAllByUsernameContainsIgnoreCase(username));
     }
 
     @Override

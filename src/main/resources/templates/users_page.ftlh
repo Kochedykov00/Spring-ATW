@@ -31,34 +31,7 @@
 
     <div id="res"></div>
 
-    <script type="application/javascript">
-
-        function f() {
-            if ($("#name").val().length >= 1) {
-                $.ajax({
-                    url: "/users/search",
-                    data: {"name": $("#name").val()},
-                    dataType: "json",
-                    success: function (name) {
-
-                        if (name.length > 0) {
-
-                            $("#res").html("");
-                            $("#res").append("<h3>Найдено " + name.length + " пользователя(ей)</h3>");
-                            for (var i = 0; i < name.length; i++) {
-                                $("#res").append("<h3>" + name[i].username + "</h3>");
-                            }
-                        } else {
-                            $("#res").html("Пользователи не найдены");
-                        }
-                    }
-                })
-            }
-            else {
-                $("#res").html(" ");
-            }
-        }
-    </script>
+    
 
 
 

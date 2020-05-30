@@ -151,7 +151,7 @@
                                 <div class="lastArtBody">
                                     <div style="overflow: auto; max-width: 300px;">
                                         <div><a class="articleHref" href="/articles/${ad.id}">${ad.title}</a></div>
-                                        <div><a class="articleHref" href="/profile/${ad.user_id}">Author</a></div>
+                                        <div><a class="articleHref" href="/profile/${ad.user_id}"><@spring.message 'main.page.author'/></a></div>
                                         <div><h6>${ad.date}</h6></div>
                                     </div>
                                 </div>

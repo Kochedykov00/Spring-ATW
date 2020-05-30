@@ -36,9 +36,14 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+
+
+
+
+    @OneToOne
+    @JoinColumn(name = "blog_id")
+    private Blog blog;
+
 
     public Blog getBlog() {
         return blog;
@@ -48,10 +53,10 @@ public class User {
         this.blog = blog;
     }
 
-    @OneToOne
-    @JoinColumn(name = "blog_id")
-    private Blog blog;
 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
     public Long getId() {
         return id;

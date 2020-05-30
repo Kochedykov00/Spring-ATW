@@ -1,10 +1,11 @@
-/*
+
 package com.example.myfirstspringproject.service;
 
-import com.example.myfirstspringproject.dto.ArticleSearchResult;
+
+import com.example.myfirstspringproject.dto.UsersSearchResult;
 
 public interface SearchService {
 
-    public ArticleSearchResult search(String name, int rating);
+    public UsersSearchResult searchUsers(String query, Integer page, Integer size);
 }
-*/
+

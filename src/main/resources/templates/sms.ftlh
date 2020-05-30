@@ -22,9 +22,9 @@
             success: function (data) {
                 if (data.length > 0) {
                     $("#result").html("");
-                    $("#result").append("confirmed");
+                    $("#result").append("отправлено");
                 } else {
-                    $("#result").html("not confirmed");
+                    $("#result").html("не отправлено");
                 }
             }
         })

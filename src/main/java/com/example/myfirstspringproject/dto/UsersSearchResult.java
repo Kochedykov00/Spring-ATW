@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
+
 @Data
-public class ArticleSearchResult {
-
-    private List<Article> articleDtos;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UsersSearchResult {
+    private List<UserDto> users;
+    private Integer count;
 }

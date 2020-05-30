@@ -36,16 +36,21 @@
 
                     <img src="${user.getPhoto()!}" width="400"/>
                 </div>
-                <#if user.getId() == myPage.getId()>
-                    <a href="/editProfile"><@spring.message 'profile.page.editing'/></a>
-                </#if>
+
 
 
 
                         <div class="col-5 profileInfo">
 
                     <div class="row" id="infoAbout">
+
+
+
                         <div class="col-5">
+                            <#if user.getId() == myPage.getId()>
+                                <a href="/editProfile"><@spring.message 'profile.page.editing'/></a>
+                            </#if>
+
                             <label for="login"><@spring.message 'profile.page.username'/> :</label>
                             <br /><br />
                             <label for="surname"><@spring.message 'profile.page.lastname'/> :</label>
@@ -55,7 +60,9 @@
                             <label for="info"><@spring.message 'profile.page.info'/> :</label>
                         </div>
                         <div class="col-6">
-
+                            <#if user.getId() == myPage.getId()>
+                                <br/>
+                            </#if>
 
                             <h4 id="login">${user.getUsername()}</h4>
                             <br />
@@ -74,6 +81,7 @@
                                 <div class="col-5">
                                     <label for="blog">Blog :</label>
                                 </div>
+
                                      <#list blog as b>
 
 
@@ -88,6 +96,8 @@
 
 
                                 </#list>
+
+
 
                             </div>
 

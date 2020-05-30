@@ -4,6 +4,7 @@ import com.example.myfirstspringproject.dto.SignUpDto;
 import com.example.myfirstspringproject.dto.SignUpForm;
 import com.example.myfirstspringproject.service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,9 +23,13 @@ public class SignUpController {
     private SignUpService service;
 
     @GetMapping("/signUp")
-    public String getSignUpPage(Model model) {
+    public String getSignUpPage(Model model, Authentication authentication) {
         model.addAttribute("form", new SignUpForm());
-        return "sign_up";
+        if(authentication != null) {
+            return "redirect:/";
+        } else {
+            return "sign_up";
+        }
     }
 
     @PostMapping("/signUp")

@@ -36,16 +36,21 @@ import java.util.Optional;
                 user.setState(State.CONFIRMED);
                 usersRepository.save(user);
 
-
-                RestTemplate restTemplate = new RestTemplate();
-                HttpHeaders headers = new HttpHeaders();
-                headers.setBasicAuth("sasha.kochedykov@mail.ru", "c9Axu85uxw3kb8g9qh9NKjtzpZPm");
-                String uri = "https://@gate.smsaero.ru/v2/sms/send?number=79172610217&text=hello abr&sign=SMS Aero&channel=DIRECT";
-                HttpEntity<String> entity = new HttpEntity<>(headers);
-                ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
                 return true;
             }
             return false;
+        }
+
+        @Override
+        public boolean confirmBySms(String text) {
+            RestTemplate restTemplate = new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBasicAuth("sasha.kochedykov@mail.ru", "c9Axu85uxw3kb8g9qh9NKjtzpZPm");
+            String uri = "https://@gate.smsaero.ru/v2/sms/send?number=79172610217&text=" + text + "&sign=SMS Aero&channel=DIRECT";
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
+            System.out.println(response.toString());
+            return true;
         }
     }
 

@@ -1,5 +1,7 @@
 package com.example.myfirstspringproject.controllers;
 
+import com.example.myfirstspringproject.service.ConfirmService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,6 +16,9 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class SmsController {
 
+    @Autowired
+    ConfirmService confirmService;
+
     @GetMapping("/sms")
     public String getUsersPage() {
         return "sms";
@@ -22,13 +27,7 @@ public class SmsController {
     @RequestMapping(path = "/sms", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public void sendSms(@RequestParam("text") String text) {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("sasha.kochedykov@mail.ru", "otumer58");
-        String resourceUrl =
-                "https://@gate.smsaero.ru/v2/sms/send?number=79172610217&text=" + text + "&sign=SMS Aero&channel=DIRECT";
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<String> response = restTemplate.exchange(resourceUrl, HttpMethod.GET, entity, String.class);
-        System.out.println(response.getBody());
+        /* вынес в отдельный метод потому что закончились деньги и выдает ошибку*/
+        confirmService.confirmBySms(text);
     }
 }

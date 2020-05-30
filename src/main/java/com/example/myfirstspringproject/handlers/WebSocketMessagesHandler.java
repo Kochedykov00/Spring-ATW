@@ -26,13 +26,15 @@ public class WebSocketMessagesHandler extends TextWebSocketHandler {
         String messageText = (String) message.getPayload();
         Message messageFromJson = objectMapper.readValue(messageText, Message.class);
 
-        if (!sessions.containsKey(messageFromJson.getFrom())) {
-            sessions.put(messageFromJson.getFrom(), session);
-        }
 
         for (WebSocketSession currentSession : sessions.values()) {
             currentSession.sendMessage(message);
         }
+
+    }
+    @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        sessions.put(session.getId(), session);
     }
 }
 
