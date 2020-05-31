@@ -29,7 +29,7 @@
 
     <body style="background-color: #d4e3fc">
     <nav class="navbar navbar-expand-sm navbar-dark justify-content-end" style="background-color: #8eb0fa">
-        <a class="navbar-brand text-black">Around The World</a>
+        <a class="navbar-brand text-white">Around The World</a>
         <div class="col-2 offset-8 ">
             <div class="dropdown" hidden>
                 <button type="button" class="btn btn-primary dropdown-toggle top-line-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Меню</button>

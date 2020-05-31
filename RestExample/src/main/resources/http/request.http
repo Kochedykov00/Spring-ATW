@@ -1,4 +1,4 @@
-POST http://localhost/signIn
+POST http://localhost:/signIn
 Content-Type: application/json
 
 {
@@ -8,18 +8,16 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost/self
-Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
 
 ###
 GET http://localhost/users/2/articles
-Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.1Tz-EyU3j-cAnDpqGvOhJI3yPzTYAXfhPWx_y3Y0_gY
 ###
 
 GET http://localhost/articles/7
-Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.1Tz-EyU3j-cAnDpqGvOhJI3yPzTYAXfhPWx_y3Y0_gY
 ###
 
-DELETE http://localhost/articles/3
-Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.lhG9T-0HKgp-zT-qstLrn3TbdeMrZqkDq0UNHD5Ui58
+DELETE http://localhost/articles/69
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwicm9sZSI6IkFETUlOIn0.1Tz-EyU3j-cAnDpqGvOhJI3yPzTYAXfhPWx_y3Y0_gY
 ###
